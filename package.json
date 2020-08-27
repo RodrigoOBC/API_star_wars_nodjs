@@ -1,0 +1,25 @@
+{
+  "name": "Desafio_star_wars_nodjs",
+  "version": "1.0.0",
+  "description": "Desafio API-REST Starwars",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RodrigoOBC/Desafio_star_wars_nodjs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RodrigoOBC/Desafio_star_wars_nodjs/issues"
+  },
+  "homepage": "https://github.com/RodrigoOBC/Desafio_star_wars_nodjs#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.0"
+  }
+}
