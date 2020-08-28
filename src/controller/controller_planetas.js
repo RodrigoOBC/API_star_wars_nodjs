@@ -17,4 +17,68 @@ router.post('/inserir_planeta', async (req, res) => {
     }
 })
 
+router.get('/buscar_planeta', async (req, res) => {
+    try {
+        const planeta = await Planetas.find()
+        if (planeta){
+            return res.status(201).send({planeta})
+        }
+        else {
+            return res.status(201).send({erro: "Planeta não encontrado"})
+        }
+    }catch(err){
+       
+        return res.status(400).send({ erro:  "Erro ao encontrar Planeta"  })
+    }
+})
+
+router.get('/buscar_planeta/:NomePlaneta', async (req, res) => {
+    try {
+        const planeta = await Planetas.findOne({Nome: req.params.NomePlaneta})
+        if (planeta){
+            return res.status(201).send({planeta})
+        }
+        else {
+            return res.status(201).send({erro: "Planeta não encontrado"})
+        }
+    }catch(err){
+       
+        return res.status(400).send({ erro:  "Erro ao encontrar Planeta"  })
+    }
+})
+
+
+// falta implementar os IDs
+// router.get('/:IDPlaneta', async (req, res) => {
+//     try {
+//         const planeta = await Planetas.findById()
+//         if (planeta){
+//             return res.status(201).send({planeta})
+//         }
+//         else {
+//             return res.status(201).send({erro: "Planeta não encontrado"})
+//         }
+//     }catch(err){
+//         return res.status(400).send({ erro: "Erro ao encontrar Planeta" })
+//     }
+// })
+
+router.delete('/deletar_planeta/:NomePlaneta', async (req, res) => {
+    try {
+        const planeta = await Planetas.findOne({Nome: req.params.NomePlaneta})
+        if (planeta){
+            await Planetas.remove({Nome: req.params.NomePlaneta})
+            return res.status(201).send({status: "Deletado com sucesso"})
+        }
+        else {
+            return res.status(201).send({erro: "Planeta não encontrado"})
+        }
+    }catch(err){
+       
+        return res.status(400).send({ erro:  "Erro ao encontrar Planeta"  })
+    }
+})
+
+
+
 module.exports = app => app.use('/planeta', router)
