@@ -1,11 +1,8 @@
-const moongose = require('mongoose')
+const moongose = require('../Data_base')
 
 
 const Planeta_Schema = new moongose.Schema({
-    id:{
-        type: BigInt,
-        require: true
-    },
+    
     Nome:{
         type: String,
         require: true
