@@ -63,6 +63,7 @@ router.get('/buscar_planeta/:NomePlaneta', async (req, res) => {
 //     }
 // })
 
+
 router.delete('/deletar_planeta/:NomePlaneta', async (req, res) => {
     try {
         const planeta = await Planetas.findOne({Nome: req.params.NomePlaneta})
