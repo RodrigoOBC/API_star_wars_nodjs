@@ -11,3 +11,5 @@ router.post('/inserir_planeta', async (res,req) => {
         return res.status(404).send({ erro: "Erro ao cadastrar Planeta" })
     }
 })
+
+module.exports = app => app.use('/planeta', router)
