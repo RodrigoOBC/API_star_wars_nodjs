@@ -1,4 +1,4 @@
-const moongose = require('mongoose')
+const moongose = require('../Data_base')
 
 
 const Planeta_Schema = new moongose.Schema({

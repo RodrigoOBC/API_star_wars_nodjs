@@ -2,13 +2,18 @@ const express = require('express')
 const Planetas = require('../Data_base/Planetas')
 const router = express.Router()
 
-router.post('/inserir_planeta', async (res,req) => {
+router.post('/inserir_planeta', async (req, res) => {
+    const { Nome } = req.body
     try {
-        const planeta = Planetas.create(req.body)
 
-        return res.status(201).send({ planeta })
+        if (await Planetas.findOne({Nome})){
+            return res.status(400).send({erro: "Planeta já cadastrado"})
+        }
+
+        const planeta = await Planetas.create(req.body)
+        return res.send({ planeta })
     }catch(err){
-        return res.status(404).send({ erro: "Erro ao cadastrar Planeta" })
+        return res.status(400).send({ erro: "Erro ao cadastrar Planeta" })
     }
 })
 
