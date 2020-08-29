@@ -152,3 +152,7 @@ http://127.0.0.1:3000/planeta/deletar_planeta/1
 ### <a name="final">6. Considerações finais</a>
 
 &nbsp;&nbsp;&nbsp;&nbsp;API criada e documentada por Rodrigo de Brito de Oliveira Cabral,agradeço a oportunidade de poder demonstrar minhas habilidades  e <b>que a força esteja com voces!!!</b>
+
+<div align="center">
+  <img src="static/imagens/Mestre_yoda.gif"/> 
+</div>
