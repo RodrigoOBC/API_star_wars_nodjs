@@ -12,13 +12,28 @@ module.exports = class api_star_wars {
             console.log('error:', error); // Print the error if one occurred
             console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
             var planeta = JSON.parse(body);
-            return planeta['results']["films"]
-
+            request({url:'http://localhost:3000/planetas/inserir_planeta',
+                method: 'POST',
+                json:{
+                    Nome: planeta['results']["name"],
+                    Clima: planeta['results']["climate"],
+                    Terreno: planeta['results']["terrain"]
+                 }})
         })
     }
 
-    // inserir_planetas(){
-    //     request.post()
+    // inserir_planetas() {
+
+    //     for (x = 0; x <= 1; x++) {
+    //         request({url:'http://localhost:3000/planetas/inserir_planeta',
+    //             method: 'POST',
+    //             json:{
+    //                 Nome: "Coruscant",
+    //                 Clima: "Seco",
+    //                 Terreno: "Planice"
+    //              }})
+    //     }
+
     // }
 
 }

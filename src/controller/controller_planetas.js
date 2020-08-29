@@ -3,16 +3,20 @@ const Planetas = require('../Data_base/Planetas')
 const router = express.Router()
 
 router.post('/inserir_planeta', async (req, res) => {
-    const { Nome } = req.body
+    const { Nome, planeta_id } = req.body
     try {
 
-        if (await Planetas.findOne({Nome})){
-            return res.status(400).send({erro: "Planeta já cadastrado"})
+        if (await Planetas.findOne({ Nome })) {
+            return res.status(400).send({ erro: "Planeta já cadastrado" })
+        }
+
+        if (await Planetas.findOne({ planeta_id })) {
+            return res.status(400).send({ erro: "Planeta já cadastrado" })
         }
 
         const planeta = await Planetas.create(req.body)
         return res.send({ planeta })
-    }catch(err){
+    } catch (err) {
         return res.status(400).send({ erro: "Erro ao cadastrar Planeta" })
     }
 })
@@ -20,30 +24,30 @@ router.post('/inserir_planeta', async (req, res) => {
 router.get('/buscar_planeta', async (req, res) => {
     try {
         const planeta = await Planetas.find()
-        if (planeta){
-            return res.status(201).send({planeta})
+        if (planeta) {
+            return res.status(201).send({ planeta })
         }
         else {
-            return res.status(201).send({erro: "Planeta não encontrado"})
+            return res.status(201).send({ erro: "Planeta não encontrado" })
         }
-    }catch(err){
-       
-        return res.status(400).send({ erro:  "Erro ao encontrar Planeta"  })
+    } catch (err) {
+
+        return res.status(400).send({ erro: "Erro ao encontrar Planeta" })
     }
 })
 
 router.get('/buscar_planeta/:NomePlaneta', async (req, res) => {
     try {
-        const planeta = await Planetas.findOne({Nome: req.params.NomePlaneta})
-        if (planeta){
-            return res.status(201).send({planeta})
+        const planeta = await Planetas.findOne({ Nome: req.params.NomePlaneta })
+        if (planeta) {
+            return res.status(201).send({ planeta })
         }
         else {
-            return res.status(201).send({erro: "Planeta não encontrado"})
+            return res.status(201).send({ erro: "Planeta não encontrado" })
         }
-    }catch(err){
-       
-        return res.status(400).send({ erro:  "Erro ao encontrar Planeta"  })
+    } catch (err) {
+
+        return res.status(400).send({ erro: "Erro ao encontrar Planeta" })
     }
 })
 
@@ -66,17 +70,17 @@ router.get('/buscar_planeta/:NomePlaneta', async (req, res) => {
 
 router.delete('/deletar_planeta/:NomePlaneta', async (req, res) => {
     try {
-        const planeta = await Planetas.findOne({Nome: req.params.NomePlaneta})
-        if (planeta){
-            await Planetas.remove({Nome: req.params.NomePlaneta})
-            return res.status(201).send({status: "Deletado com sucesso"})
+        const planeta = await Planetas.findOne({ Nome: req.params.NomePlaneta })
+        if (planeta) {
+            await Planetas.remove({ Nome: req.params.NomePlaneta })
+            return res.status(201).send({ status: "Deletado com sucesso" })
         }
         else {
-            return res.status(201).send({erro: "Planeta não encontrado"})
+            return res.status(201).send({ erro: "Planeta não encontrado" })
         }
-    }catch(err){
-       
-        return res.status(400).send({ erro:  "Erro ao encontrar Planeta"  })
+    } catch (err) {
+
+        return res.status(400).send({ erro: "Erro ao encontrar Planeta" })
     }
 })
 
