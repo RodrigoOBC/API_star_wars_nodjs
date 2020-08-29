@@ -67,16 +67,21 @@ git clone git@github.com:RodrigoOBC/Desafio_star_wars_nodjs.git
 
 ```JSON
 npm install
+
 ```
 
 &nbsp;&nbsp;&nbsp;&nbsp;<b>Obs1:</b> Todas as bibliotecas necessarias, serão instaladas ao realizar esse procedimento  </br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;<b>Obs2:</b> O usuário deverá está na pasta raiz do projeto  </br>
 
-'''JSON
+#### &nbsp;&nbsp;&nbsp;&nbsp;Inciar o servdor
 
+```JSON
 node app.js
-'''
+
+```
+
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Obs3:</b> Antes de testar qualquer endpoint, o comando acima deve ser executado  </br>
 
 ### <a name="Funcionalidades">4.Funcionalidades</a>
 
@@ -131,21 +136,18 @@ http://127.0.0.1:3000/planeta/buscar_planeta/Sullust
 &nbsp;&nbsp;&nbsp;&nbsp;<b>Obs1:</b> Lembrando que o valor inserido deverá ser codificado na url  </br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;Ex:
+```
 http://127.0.0.1:3000/buscar_planeta/nome=Yavin%20IV
-
+```
 
 #### <a name="deleta">V. Excluir um planeta:</a>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Para excluir um planeta basta fazer um rqueste tipo "DELETE" para o endpoint "/deletar_planeta/NomePlaneta" indicando o nome.
+&nbsp;&nbsp;&nbsp;&nbsp;Para excluir um planeta basta fazer um rqueste tipo "DELETE" para o endpoint "/deletar_planeta/IDPlaneta" indicando o nome.
 
-http://127.0.0.1:3000/planeta/deletar_planeta/Sullust
+http://127.0.0.1:3000/planeta/deletar_planeta/1
 
-&nbsp;&nbsp;&nbsp;&nbsp;<b>Obs1:</b> Lembrando que o valor inserido deverá ser codificado na url  </br>
 
-&nbsp;&nbsp;&nbsp;&nbsp;Ex:
-http://127.0.0.1:3000/planeta/deletar_planeta/Yavin%20IV
-
-&nbsp;&nbsp;&nbsp;&nbsp;Caso esse planeta não exista ele retornará o erro 500 "Planeta não encontrado".
+&nbsp;&nbsp;&nbsp;&nbsp;Caso esse planeta não exista ele retornará o erro 400 "Planeta não encontrado".
 
 ### <a name="final">6. Considerações finais</a>
 

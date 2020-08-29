@@ -55,7 +55,7 @@ router.get('/buscar_planeta/:NomePlaneta', async (req, res) => {
 
 router.get('/:IDPlaneta', async (req, res) => {
     try {
-        const planeta = await Planetas.findOne({planeta_id: req.params.planeta_id})
+        const planeta = await Planetas.findOne({planeta_id: req.params.IDPlaneta})
         if (planeta){
             return res.status(201).send({planeta})
         }
@@ -68,11 +68,11 @@ router.get('/:IDPlaneta', async (req, res) => {
 })
 
 
-router.delete('/deletar_planeta/:NomePlaneta', async (req, res) => {
+router.delete('/deletar_planeta/:IDPlaneta', async (req, res) => {
     try {
-        const planeta = await Planetas.findOne({ Nome: req.params.NomePlaneta })
+        const planeta = await Planetas.findOne({ planeta_id: req.params.IDPlaneta })
         if (planeta) {
-            await Planetas.remove({ Nome: req.params.NomePlaneta })
+            await Planetas.remove({ planeta_id: req.params.IDPlaneta })
             return res.status(201).send({ status: "Deletado com sucesso" })
         }
         else {
