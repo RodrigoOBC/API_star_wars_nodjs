@@ -18,6 +18,10 @@ const Planeta_Schema = new moongose.Schema({
     Terreno: {
         type: String,
         require: true
+    },
+    Filmes: {
+        type: SchemaTypes.Number,
+        default: 0
     }
 
 })

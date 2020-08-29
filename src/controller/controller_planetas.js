@@ -3,7 +3,8 @@ const Planetas = require('../Data_base/Planetas')
 const router = express.Router()
 
 router.post('/inserir_planeta', async (req, res) => {
-    const { Nome, planeta_id } = req.body
+    const { Nome } = req.body
+    const { planeta_id } = req.body
     try {
 
         if (await Planetas.findOne({ Nome })) {
