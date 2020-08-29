@@ -10,7 +10,6 @@
   <li><a href="#Sobre">O projeto</a></li>
   <li><a href="#Tecnologias">Tecnologias utilizadas</a></li>
   <li><a href="#Config">Instalando a API</a></li>
-  <li><a href="#Testes">Efetuando testes</a></li>
   <li><a href="#Funcionalidades">Funcionalidades</a>
     <ol>
       <li><a href="#Insere">Inserir um planeta</a></li>
@@ -40,47 +39,19 @@
 &nbsp;&nbsp;&nbsp;&nbsp;
 
 #### &nbsp;&nbsp;&nbsp;&nbsp;Banco de Dados
-&nbsp;&nbsp;&nbsp;&nbsp; Para a realização desse desafio, usei um banco mongo pessoal, então o usuário deverá alterar os dados de conexão nos seguintes trechos do código:
+&nbsp;&nbsp;&nbsp;&nbsp; Para a realização desse desafio, usei um banco local.
 
-&nbsp;&nbsp;&nbsp;&nbsp; Back_end > BD_MONGO > Conector.py:
+&nbsp;&nbsp;&nbsp;&nbsp; src > Data_base > index.py:
 
-```python
+```js
 
-class Conector:
-    def __init__(self, senha=None, usuario=None):
-        self.senha = senha
-        self.usuario = usuario
-        self.conn = MongoClient(
-            f'seu link de conexão')
-        self.conn.close()
+const mongoose = require('mongoose')
 
+mongoose.connect('mongodb://localhost:27017/planetas',{ useNewUrlParser:true})
+mongoose.Promise = global.Promise
 
-    def conectar(self):
-        try:
-            self.conn = MongoClient(
-                f'seu link de conexão')
-            return True
-        except:
-            return False
-            .
-            .
-            .
-            
-            
-class Interar_BD(Conector):
-    def __init__(self, user, senha, banco=None):
-        self.senha = senha
-        self.user = user
-        Conector.__init__(self, senha=self.senha, usuario=self.user)
-        self.banco = "Seu banco aqui" <--------
-```
+module.exports = mongoose
 
-&nbsp;&nbsp;&nbsp;&nbsp; app.py:
-
-
-```python
-app = Flask(__name__)
-COLLECTION = "Planetas" <---- Sua tabela aqui
 ```
 
 
@@ -88,33 +59,26 @@ COLLECTION = "Planetas" <---- Sua tabela aqui
 #### &nbsp;&nbsp;&nbsp;&nbsp;Git
 &nbsp;&nbsp;&nbsp;&nbsp;Clone o projeto no repositorio de preferencia, utilizando o seguinte codigo : 
 ```JSON
-git clone git@github.com:RodrigoOBC/desafio_b2w.git
+git clone git@github.com:RodrigoOBC/Desafio_star_wars_nodjs.git
 
 ```
-#### &nbsp;&nbsp;&nbsp;&nbsp;Python
+#### &nbsp;&nbsp;&nbsp;&nbsp;Nodejs
 &nbsp;&nbsp;&nbsp;&nbsp;Para instalar a API, você deverá realizar o seguinte comando:
+
 ```JSON
-pip install -r requirements.txt
+npm install
 ```
 
 &nbsp;&nbsp;&nbsp;&nbsp;<b>Obs1:</b> Todas as bibliotecas necessarias, serão instaladas ao realizar esse procedimento  </br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;<b>Obs2:</b> O usuário deverá está na pasta raiz do projeto  </br>
 
+'''JSON
 
-### <a name="Testes">4.Efetuando testes</a>  
+node app.js
+'''
 
-&nbsp;&nbsp;&nbsp;&nbsp;Para a realização dos testes, é preciso ter instalado o postman:
-<ol>
-<li><a href="https://www.postman.com">Instale o Postman</a></li>
-<li>Importe o arquivo Teste api "B2W.postman_collection.json"</li>
-<li>Inicie a API</li>
-<li>Aperte run</li>
-</ol>
-
-Todos os testes serão executados automaticamente.
-
-### <a name="Funcionalidades">5.Funcionalidades</a>
+### <a name="Funcionalidades">4.Funcionalidades</a>
 
 &nbsp;&nbsp;&nbsp;&nbsp;Aqui veremos as funcionalidades pedidas, no desafio :
 
