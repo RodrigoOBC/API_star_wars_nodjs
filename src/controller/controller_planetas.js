@@ -53,20 +53,19 @@ router.get('/buscar_planeta/:NomePlaneta', async (req, res) => {
 })
 
 
-// falta implementar os IDs
-// router.get('/:IDPlaneta', async (req, res) => {
-//     try {
-//         const planeta = await Planetas.findById()
-//         if (planeta){
-//             return res.status(201).send({planeta})
-//         }
-//         else {
-//             return res.status(201).send({erro: "Planeta não encontrado"})
-//         }
-//     }catch(err){
-//         return res.status(400).send({ erro: "Erro ao encontrar Planeta" })
-//     }
-// })
+router.get('/:IDPlaneta', async (req, res) => {
+    try {
+        const planeta = await Planetas.findOne({planeta_id: req.params.planeta_id})
+        if (planeta){
+            return res.status(201).send({planeta})
+        }
+        else {
+            return res.status(201).send({erro: "Planeta não encontrado"})
+        }
+    }catch(err){
+        return res.status(400).send({ erro: "Erro ao encontrar Planeta" })
+    }
+})
 
 
 router.delete('/deletar_planeta/:NomePlaneta', async (req, res) => {
