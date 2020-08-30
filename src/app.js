@@ -12,3 +12,4 @@ require('./controller/controller_planetas')(app)
 
 app.listen(3000)
 
+module.exports = app;
