@@ -16,7 +16,7 @@ router.post('/inserir_planeta', async (req, res) => {
         }
 
         const planeta = await Planetas.create(req.body)
-        return res.send({ planeta })
+        return res.status(201).send({ planeta })
     } catch (err) {
         return res.status(400).send({ erro: "Erro ao cadastrar Planeta" })
     }
