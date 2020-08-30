@@ -87,7 +87,7 @@ node app.js
 
 
 ```JSON
-node ./back_end/teste_inserir.js
+node ./back_end/popular_banco.js
 
 ```
 
