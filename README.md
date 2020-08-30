@@ -83,6 +83,17 @@ node app.js
 
 &nbsp;&nbsp;&nbsp;&nbsp;<b>Obs3:</b> Antes de testar qualquer endpoint, o comando acima deve ser executado  </br>
 
+#### &nbsp;&nbsp;&nbsp;&nbsp;<b>Populando o Banco</b>
+
+
+```JSON
+node ./back_end/teste_inserir.js
+
+```
+
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Obs4:</b> Executar o comando antes de realizar qualquer busca   </br>
+
+
 ### <a name="Funcionalidades">4.Funcionalidades</a>
 
 &nbsp;&nbsp;&nbsp;&nbsp;Aqui veremos as funcionalidades pedidas, no desafio :
